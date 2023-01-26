@@ -11,10 +11,7 @@ function App() {
           <Navigation />
         </div>
 
-        <Cards
-          title='Personal info'
-          description='Please provide your name, email address and phone number. '
-        />
+        <Cards />
         <Nav />
       </div>
     </div>
