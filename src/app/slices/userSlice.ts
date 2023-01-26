@@ -13,6 +13,11 @@ const initialState = {
     customizable: false,
   },
   page: 1,
+  activePlan: 4,
+  activeAddons: [0, 0, 0],
+  totalPlan: 0,
+  totalAddon: 0,
+  finalBill: 0,
 };
 
 const userSlice = createSlice({
@@ -40,6 +45,21 @@ const userSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
+    setActivePlan: (state, action: PayloadAction<number>) => {
+      state.activePlan = action.payload;
+    },
+    setActiveAddons: (state, action: PayloadAction<number>) => {
+      state.activePlan = action.payload;
+    },
+    setTotalPlan: (state, action: PayloadAction<number>) => {
+      state.totalPlan = action.payload;
+    },
+    setTotalAddon: (state, action: PayloadAction<number>) => {
+      state.totalAddon = action.payload;
+    },
+    setFinalBill: (state, action: PayloadAction<number>) => {
+      state.finalBill = action.payload;
+    },
   },
 });
 
@@ -51,5 +71,10 @@ export const {
   setYearly,
   setAddon,
   setPage,
+  setActivePlan,
+  setActiveAddons,
+  setTotalPlan,
+  setFinalBill,
+  setTotalAddon,
 } = userSlice.actions;
 export default userSlice.reducer;

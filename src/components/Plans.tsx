@@ -1,6 +1,6 @@
 import React from 'react';
 import style from '../styles/components/Plans.module.css';
-import { setPlan } from '../app/slices/userSlice';
+import { setActivePlan, setPlan, setTotalPlan } from '../app/slices/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import Switch from './Switch';
@@ -44,21 +44,26 @@ const Plans = (): JSX.Element => {
     },
   ];
   const dispatch = useDispatch();
-  const [active, setActive] = React.useState<number>();
+  const active = useSelector((state: RootState) => state.user.activePlan);
   const yearly = useSelector((state: RootState) => state.user.yearly);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const plan = e.currentTarget.name;
     if (plan === 'Arcade') {
       dispatch(setPlan(plan));
-      setActive(0);
+      dispatch(setActivePlan(0));
+      !yearly ? dispatch(setTotalPlan(9)) : dispatch(setTotalPlan(90));
     }
     if (plan === 'Advanced') {
       dispatch(setPlan(plan));
-      setActive(1);
+      dispatch(setActivePlan(1));
+
+      !yearly ? dispatch(setTotalPlan(12)) : dispatch(setTotalPlan(120));
     }
     if (plan === 'Pro') {
       dispatch(setPlan(plan));
-      setActive(2);
+      dispatch(setActivePlan(2));
+
+      !yearly ? dispatch(setTotalPlan(15)) : dispatch(setTotalPlan(150));
     }
   };
   const getData = () => {
@@ -68,9 +73,8 @@ const Plans = (): JSX.Element => {
     <div className={style.Plans__body}>
       {getData().map((item, i) => {
         return (
-          <button onClick={handleClick} name={item.title}>
+          <button id={i.toString()} onClick={handleClick} name={item.title}>
             <div
-              id={i.toString()}
               className={
                 active === i ? style.Plans__card_active : style.Plans__card
               }

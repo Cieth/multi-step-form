@@ -24,7 +24,6 @@ const Navigation = () => {
     if (name === '4') {
       dispatch(setPage(4));
     }
-    return '/';
   };
   return (
     <div className={styles.Navigation__body}>

@@ -6,4 +6,9 @@ export interface initialStateI {
   yearly: boolean;
   addon: {};
   page: number;
+  activePlan: number | null;
+  activeAddons: Array<number>;
+  totalPlan: number;
+  totalAddon: number;
+  finalBill: number;
 }

@@ -3,7 +3,6 @@ import './App.css';
 import Nav from './components/Nav';
 import Cards from './components/Card';
 import Navigation from './components/Navigation';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from './app/store';
 
@@ -45,6 +44,7 @@ function App() {
   };
   React.useEffect(() => {
     initialize();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (

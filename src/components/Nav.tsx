@@ -1,42 +1,20 @@
-import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import styles from '../styles/components/Nav.module.css';
 import { RootState } from '../app/store';
 import { setPage } from '../app/slices/userSlice';
 export default function Nav(): JSX.Element {
   const page = useSelector((state: RootState) => state.user.page);
   const dispatch = useDispatch();
-  const location = useLocation().pathname;
-  const navigate = useNavigate();
 
   const next = (e: React.MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name;
     if (name === 'next') {
-      if (location === '/') {
-        dispatch(setPage(2));
-        navigate('/plan');
-      }
-      if (location === '/plan') {
-        dispatch(setPage(3));
-        navigate('/addon');
-      }
-      if (location === '/addon') {
-        dispatch(setPage(4));
-        navigate('/billing');
+      if (page >= 1 && page < 4) {
+        dispatch(setPage(page + 1));
       }
     } else {
-      if (location === '/plan') {
-        dispatch(setPage(1));
-        navigate('/');
-      }
-      if (location === '/addon') {
-        dispatch(setPage(2));
-        navigate('/plan');
-      }
-      if (location === '/billing') {
-        dispatch(setPage(3));
-        navigate('/addon');
+      if (page <= 4 && page > 1) {
+        dispatch(setPage(page - 1));
       }
     }
   };

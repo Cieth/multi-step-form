@@ -1,7 +1,11 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import style from '../styles/components/Switch.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { setYearly } from '../app/slices/userSlice';
+import {
+  setActivePlan,
+  setTotalPlan,
+  setYearly,
+} from '../app/slices/userSlice';
 import { RootState } from '../app/store';
 const Switch = () => {
   const dispatch = useDispatch();
@@ -11,8 +15,12 @@ const Switch = () => {
     const checked = e.target.checked;
     if (checked) {
       dispatch(setYearly(true));
+      dispatch(setActivePlan(4));
+      dispatch(setTotalPlan(0));
     } else {
       dispatch(setYearly(false));
+      dispatch(setActivePlan(4));
+      dispatch(setTotalPlan(0));
     }
   };
   const active = {
