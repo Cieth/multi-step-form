@@ -1,0 +1,16 @@
+.Navigation__body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.Navigation__body button{
+    background: none;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid white;
+    text-decoration: none;
+}
