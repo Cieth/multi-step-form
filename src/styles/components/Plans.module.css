@@ -1,0 +1,27 @@
+.Plans__body{
+    display: flex;
+    flex-direction: column;
+}
+.Plans__card{
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    border-radius: 5px;
+    border: 1.5px solid rgb(220, 220, 220);
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.Plans__card_content span{
+    color: rgb(56, 78, 127);
+    font-family: "Ubuntu Bold";
+    padding: 0;
+    margin: 1px;
+ }
+.Plans__card_content p{
+    font-family: "Ubuntu";
+    font-size: 14px;
+    color: rgb(154, 154, 154);
+    padding: 0;
+    margin: 1px;
+}

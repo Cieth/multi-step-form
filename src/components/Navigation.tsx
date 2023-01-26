@@ -5,7 +5,7 @@ const Navigation = () => {
   let getLocation = useLocation();
   let path = getLocation.pathname;
   let styleActive = () => {
-    return { backgroundColor: '#B2C4EB', color: 'black' };
+    return { backgroundColor: '#A0D3DE', color: 'black', border: 'none' };
   };
   return (
     <div className={styles.Navigation__body}>
