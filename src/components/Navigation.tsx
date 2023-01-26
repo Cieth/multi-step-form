@@ -10,9 +10,9 @@ const Navigation = () => {
   return (
     <div className={styles.Navigation__body}>
       <button style={path === '/' ? styleActive() : {}}>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
+      <button style={path === '/plan' ? styleActive() : {}}>2</button>
+      <button style={path === '/addon' ? styleActive() : {}}>3</button>
+      <button style={path === '/billing' ? styleActive() : {}}>4</button>
     </div>
   );
 };

@@ -1,15 +1,15 @@
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/store';
 import styles from '../styles/components/Cards.module.css';
 import Fields from './Fields';
-
 import Plans from './Plans';
-
 interface cardProps {
   title: string;
   description: string;
-  page: number;
 }
 
-export default function Cards({ title, description, page }: cardProps) {
+export default function Cards({ title, description }: cardProps) {
+  const page = useSelector((state: RootState) => state.user.page);
   return (
     <div className={styles.Card__body}>
       <div className={styles.Card__content}>
