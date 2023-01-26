@@ -1,6 +1,7 @@
 .Plans__body{
     display: flex;
     flex-direction: column;
+    
 }
 .Plans__body button{
     background-color: white;
@@ -42,4 +43,5 @@
     color: rgb(154, 154, 154);
     padding: 0;
     margin: 1px;
+
 }

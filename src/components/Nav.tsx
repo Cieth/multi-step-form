@@ -22,7 +22,7 @@ export default function Nav(): JSX.Element {
         navigate('/addon');
       }
       if (location === '/addon') {
-        dispatch(setPage(3));
+        dispatch(setPage(4));
         navigate('/billing');
       }
     } else {
@@ -39,7 +39,6 @@ export default function Nav(): JSX.Element {
         navigate('/addon');
       }
     }
-    return '/';
   };
   const stylo = {
     justifyContent: 'spaceBetween',
