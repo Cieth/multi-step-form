@@ -1,0 +1,22 @@
+.Card__body{
+    margin: 1rem auto;
+    height: 20rem;
+    width: 20rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+}
+
+.Card__content{
+    padding: 1rem;
+}
+.Card__title{
+    font-family: "Ubuntu Bold";
+    font-size: 1.2rem;
+    color: rgb(41, 41, 95);
+    margin-bottom: 0.5rem;
+}
+.Card__description{
+    font-family:"Ubuntu Regular";
+    color: rgb(150, 150, 150);
+    margin-bottom: 0.5rem;
+}

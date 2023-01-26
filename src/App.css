@@ -1,5 +1,23 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../assets/fonts/Ubuntu-Medium.ttf");
+  font-weight: medium;
+}
+@font-face {
+  font-family: "Ubuntu Bold";
+  src: url("../assets/fonts/Ubuntu-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Ubuntu Regular ";
+  src: url("../assets/fonts/Ubuntu-Regular.ttf");
+  font-weight: 100;
+}
+*{
+  font-family: Ubuntu,sans-serif;
+}
 body{
-  
+  background-color: rgb(246, 251, 255);
 }
 .Header {
   z-index: 100;
@@ -8,4 +26,9 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
 }
+.Buttons {
+  padding: 1rem;
+  text-align: center;
+}
+
 
