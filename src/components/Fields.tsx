@@ -1,5 +1,5 @@
 import style from '../styles/components/Fields.module.css';
-const Fields = () => {
+const Fields = (): JSX.Element => {
   return (
     <form className={style.Fields__body}>
       <div className={style.Fields}>
@@ -10,7 +10,7 @@ const Fields = () => {
         <label htmlFor='Email'>Email Address</label>
         <input
           name='Email'
-          type='text'
+          type='email'
           placeholder='e.g stephenking@lorem.com'
         />
       </div>

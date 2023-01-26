@@ -2,6 +2,7 @@ import React from 'react';
 import style from '../styles/components/Plans.module.css';
 import { setPlan } from '../app/slices/userSlice';
 import { useDispatch } from 'react-redux';
+import Switch from './Switch';
 const Plans = (): JSX.Element => {
   const data = [
     {
@@ -79,6 +80,7 @@ const Plans = (): JSX.Element => {
           </button>
         );
       })}
+      <Switch />
     </div>
   );
 };
