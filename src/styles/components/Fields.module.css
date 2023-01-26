@@ -1,0 +1,24 @@
+.Fields__body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+.Fields{
+    display: flex;
+    flex-direction: column;
+}
+.Fields label{
+    font-size: 0.8rem;
+    font-family: "Ubuntu Regular";
+    font-weight: 600;
+    color: rgb(54, 54, 107);
+}
+.Fields input{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.8rem;
+    font-family: "Ubuntu Bold";
+    height: 2rem;
+    color: rgb(99, 99, 99);
+    text-indent: 0.7rem;
+}
