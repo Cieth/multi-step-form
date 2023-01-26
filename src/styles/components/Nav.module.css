@@ -26,7 +26,14 @@
     justify-content: space-between;
     margin: auto;
 }
-.inner2 button{
+.inner2 button:first-child{
+    border : 0 ;
+    padding: 0.7rem;
+    background: none;
+    color: rgb(185, 185, 185);
+    font-family: "Ubuntu Bold";    
+}
+.inner2 button:last-child{
     background-color: rgb(16, 48, 116);
     border-radius: 5px;
     border : 0 ;

@@ -1,6 +1,8 @@
 import React from 'react';
 import style from '../styles/components/Plans.module.css';
-const Plans = () => {
+import { setPlan } from '../app/slices/userSlice';
+import { useDispatch } from 'react-redux';
+const Plans = (): JSX.Element => {
   const data = [
     {
       image:
@@ -36,15 +38,36 @@ const Plans = () => {
       price: '$150/mo',
     },
   ];
+  const dispatch = useDispatch();
+  const [active, setActive] = React.useState<number>();
 
-  const handleClick = () => {};
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const plan = e.currentTarget.name;
+    if (plan === 'Arcade') {
+      dispatch(setPlan(plan));
+      setActive(0);
+    }
+    if (plan === 'Advanced') {
+      dispatch(setPlan(plan));
+      setActive(1);
+    }
+    if (plan === 'Pro') {
+      dispatch(setPlan(plan));
+      setActive(2);
+    }
+  };
 
   return (
     <div className={style.Plans__body}>
       {data.slice(0, 3).map((item, i) => {
         return (
-          <button>
-            <div id={i.toString()} className={style.Plans__card}>
+          <button onClick={handleClick} name={item.title}>
+            <div
+              id={i.toString()}
+              className={
+                active === i ? style.Plans__card_active : style.Plans__card
+              }
+            >
               <div className={style.Plans__card_img}>
                 <img loading='lazy' src={item.image} alt={item.title} />
               </div>

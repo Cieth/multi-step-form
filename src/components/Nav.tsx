@@ -49,7 +49,7 @@ export default function Nav(): JSX.Element {
       <div className={page <= 1 ? styles.inner : styles.inner2} style={stylo}>
         {page > 1 && (
           <button name='back' onClick={next}>
-            Go back
+            Go Back
           </button>
         )}
         <button name='next' onClick={next}>
