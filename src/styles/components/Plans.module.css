@@ -5,8 +5,10 @@
 .Plans__body button{
     background-color: white;
     border: none;
+    transition: 0.3s;
 }
 .Plans__card{
+    transition: 0.3s;
     display: flex;
     column-gap: 1rem;
     align-items: center;
@@ -17,6 +19,7 @@
     text-align: left;
 }
 .Plans__card_active{
+    transition: 0.3s;
     display: flex;
     column-gap: 1rem;
     align-items: center;
