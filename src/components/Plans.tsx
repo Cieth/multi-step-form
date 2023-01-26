@@ -37,19 +37,23 @@ const Plans = () => {
     },
   ];
 
+  const handleClick = () => {};
+
   return (
     <div className={style.Plans__body}>
       {data.slice(0, 3).map((item, i) => {
         return (
-          <div id={i.toString()} className={style.Plans__card}>
-            <div className={style.Plans__card_img}>
-              <img src={item.image} alt={item.title} />
+          <button>
+            <div id={i.toString()} className={style.Plans__card}>
+              <div className={style.Plans__card_img}>
+                <img loading='lazy' src={item.image} alt={item.title} />
+              </div>
+              <div className={style.Plans__card_content}>
+                <span>{item.title}</span>
+                <p>{item.price}</p>
+              </div>
             </div>
-            <div className={style.Plans__card_content}>
-              <span>{item.title}</span>
-              <p>{item.price}</p>
-            </div>
-          </div>
+          </button>
         );
       })}
     </div>
