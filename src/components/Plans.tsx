@@ -1,7 +1,8 @@
 import React from 'react';
 import style from '../styles/components/Plans.module.css';
 import { setPlan } from '../app/slices/userSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../app/store';
 import Switch from './Switch';
 const Plans = (): JSX.Element => {
   const data = [
@@ -24,24 +25,27 @@ const Plans = (): JSX.Element => {
       price: '$15/mo',
     },
     {
-      image: '',
+      image:
+        'https://res.cloudinary.com/dj80e8qqp/image/upload/v1674755538/icon-arcade_r5lux3.png',
       title: 'Arcade',
       price: '$90/mo',
     },
     {
-      image: '',
+      image:
+        'https://res.cloudinary.com/dj80e8qqp/image/upload/v1674755538/icon-advanced_vt9eea.png',
       title: 'Advanced',
       price: '$120/mo',
     },
     {
-      image: '',
+      image:
+        'https://res.cloudinary.com/dj80e8qqp/image/upload/v1674755538/icon-pro_m4wdx3.png',
       title: 'Pro',
       price: '$150/mo',
     },
   ];
   const dispatch = useDispatch();
   const [active, setActive] = React.useState<number>();
-
+  const yearly = useSelector((state: RootState) => state.user.yearly);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const plan = e.currentTarget.name;
     if (plan === 'Arcade') {
@@ -57,10 +61,12 @@ const Plans = (): JSX.Element => {
       setActive(2);
     }
   };
-
+  const getData = () => {
+    return yearly ? data.slice(3, 6) : data.slice(0, 3);
+  };
   return (
     <div className={style.Plans__body}>
-      {data.slice(0, 3).map((item, i) => {
+      {getData().map((item, i) => {
         return (
           <button onClick={handleClick} name={item.title}>
             <div
