@@ -18,6 +18,9 @@ const Finish = () => {
           our platform. If you ever need support, please feel free to email us
           at support@oavagaming.com
         </p>
+        <span style={{ fontSize: '0.6rem', color: 'grey' }}>
+          There's no validations on fields since the point is showcasing
+        </span>
       </div>
     </div>
   );

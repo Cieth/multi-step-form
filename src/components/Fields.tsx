@@ -6,6 +6,7 @@ const Fields = (): JSX.Element => {
         <label htmlFor='Name'>Name</label>
         <input name='Name' type='text' placeholder='e.g Stephen King' />
       </div>
+
       <div className={style.Fields}>
         <label htmlFor='Email'>Email Address</label>
         <input
