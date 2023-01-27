@@ -1,6 +1,7 @@
 .Card__body{
     margin: 4rem auto;
     min-height: 20rem;
+    max-height: 25rem;
     width: 20rem;
     background-color: rgb(255, 255, 255);
     border-radius: 16px;
@@ -20,3 +21,42 @@
     color: rgb(150, 150, 150);
     margin-bottom: 0.5rem;
 }
+
+@media only screen and (min-width: 800px) {
+    .Card__body{
+        margin: 4rem auto;
+        display: flex;
+        min-height: 35rem;
+        width: 50rem;
+        background-color: rgb(255, 255, 255);
+        border-radius: 16px;
+    }
+    .Card__content{
+        display: flex;
+        flex-direction: column;
+        padding: 3rem  2rem 0  2rem ;
+        margin: 1rem;
+    }
+    .Card__content_2{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem  2rem 0  2rem ;
+        margin: 1rem;
+    }
+    .Card__body_content_main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .Card__body_navigation{
+        margin: 1rem;
+        border-radius: 5px;
+        justify-content: space-between;
+        width: 25%;
+        z-index: 100;
+        min-height: 100%;
+        background: url("../../../assets/images/bg-sidebar-desktop.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+  }

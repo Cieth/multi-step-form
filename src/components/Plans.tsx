@@ -4,6 +4,7 @@ import { setActivePlan, setPlan, setTotalPlan } from '../app/slices/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import Switch from './Switch';
+import useWindowDimensions from '../util/useWindowDimension';
 const Plans = (): JSX.Element => {
   const data = [
     {
@@ -46,6 +47,8 @@ const Plans = (): JSX.Element => {
   const dispatch = useDispatch();
   const active = useSelector((state: RootState) => state.user.activePlan);
   const yearly = useSelector((state: RootState) => state.user.yearly);
+  const isMobile = useWindowDimensions().width;
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const plan = e.currentTarget.name;
     if (plan === 'Arcade') {
@@ -70,28 +73,31 @@ const Plans = (): JSX.Element => {
     return yearly ? data.slice(3, 6) : data.slice(0, 3);
   };
   return (
-    <div className={style.Plans__body}>
-      {getData().map((item, i) => {
-        return (
-          <button key={i.toString()} onClick={handleClick} name={item.title}>
-            <div
-              className={
-                active === i ? style.Plans__card_active : style.Plans__card
-              }
-            >
-              <div className={style.Plans__card_img}>
-                <img loading='lazy' src={item.image} alt={item.title} />
+    <>
+      <div className={style.Plans__body}>
+        {getData().map((item, i) => {
+          return (
+            <button key={i.toString()} onClick={handleClick} name={item.title}>
+              <div
+                className={
+                  active === i ? style.Plans__card_active : style.Plans__card
+                }
+              >
+                <div className={style.Plans__card_img}>
+                  <img loading='lazy' src={item.image} alt={item.title} />
+                </div>
+                <div className={style.Plans__card_content}>
+                  <span>{item.title}</span>
+                  <p>{item.price}</p>
+                </div>
               </div>
-              <div className={style.Plans__card_content}>
-                <span>{item.title}</span>
-                <p>{item.price}</p>
-              </div>
-            </div>
-          </button>
-        );
-      })}
-      <Switch />
-    </div>
+            </button>
+          );
+        })}
+        {isMobile < 800 && <Switch />}
+      </div>
+      {isMobile > 800 && <Switch />}
+    </>
   );
 };
 

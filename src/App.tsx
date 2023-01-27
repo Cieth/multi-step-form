@@ -5,6 +5,7 @@ import Cards from './components/Card';
 import Navigation from './components/Navigation';
 import { useSelector } from 'react-redux';
 import { RootState } from './app/store';
+import useWindowDimensions from './util/useWindowDimension';
 
 interface dataI {
   title: string;
@@ -53,16 +54,15 @@ function App() {
     initialize();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+  const isMobile = useWindowDimensions().width;
 
   return (
     <div className='App'>
       <div className='Header'>
-        <div className='Buttons'>
-          <Navigation />
-        </div>
+        <div className='Buttons'>{isMobile < 800 ? <Navigation /> : <></>}</div>
 
         <Cards title={data.title} description={data.description} />
-        <Nav />
+        {isMobile < 800 ? <Nav /> : <></>}
       </div>
     </div>
   );

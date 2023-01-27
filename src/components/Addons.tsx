@@ -102,16 +102,16 @@ const Addons = () => {
   };
 
   return (
-    <form className={style.Plans__body}>
+    <form className={style.Addon__body}>
       {getData().map((item, i) => {
         return (
           <div
             key={i}
             className={
-              !activeAddons[i] ? style.Plans__card : style.Plans__card_active
+              !activeAddons[i] ? style.Addon__card : style.Addon__card_active
             }
           >
-            <div className={style.Plans__card_img}>
+            <div className={style.Addon__card_img}>
               <input
                 onChange={handleCheck}
                 type='checkbox'
@@ -122,11 +122,11 @@ const Addons = () => {
                 id={i.toString()}
               />
             </div>
-            <div className={style.Plans__card_content}>
+            <div className={style.Addon__card_content}>
               <span>{item.title}</span>
               <p>{item.description}</p>
             </div>
-            <div className={style.Plans__card_content}>
+            <div className={style.Addon__card_content}>
               <h3>{item.price}</h3>
             </div>
           </div>
