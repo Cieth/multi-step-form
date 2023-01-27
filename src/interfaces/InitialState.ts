@@ -7,7 +7,7 @@ export interface initialStateI {
   addon: {};
   page: number;
   activePlan: number | null;
-  activeAddons: Array<number>;
+  activeAddons: Array<boolean>;
   totalPlan: number;
   totalAddon: number;
   finalBill: number;

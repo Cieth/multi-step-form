@@ -14,7 +14,7 @@ const initialState = {
   },
   page: 1,
   activePlan: 4,
-  activeAddons: [0, 0, 0],
+  activeAddons: [false, false, false],
   totalPlan: 0,
   totalAddon: 0,
   finalBill: 0,
@@ -48,8 +48,30 @@ const userSlice = createSlice({
     setActivePlan: (state, action: PayloadAction<number>) => {
       state.activePlan = action.payload;
     },
-    setActiveAddons: (state, action: PayloadAction<number>) => {
-      state.activePlan = action.payload;
+    setActiveAddons: (state, action: PayloadAction<Array<boolean>>) => {
+      state.activeAddons = action.payload;
+    },
+    setOnlineAddons: (state, action: PayloadAction<string>) => {
+      if (action.payload === 'online') {
+        state.activeAddons[0] = true;
+      }
+      if (action.payload === 'larger') {
+        state.activeAddons[1] = true;
+      }
+      if (action.payload === 'customizable') {
+        state.activeAddons[2] = true;
+      }
+    },
+    deleteOnlineAddons: (state, action: PayloadAction<string>) => {
+      if (action.payload === 'online') {
+        state.activeAddons[0] = false;
+      }
+      if (action.payload === 'larger') {
+        state.activeAddons[1] = false;
+      }
+      if (action.payload === 'customizable') {
+        state.activeAddons[2] = false;
+      }
     },
     setTotalPlan: (state, action: PayloadAction<number>) => {
       state.totalPlan = action.payload;
@@ -76,5 +98,7 @@ export const {
   setTotalPlan,
   setFinalBill,
   setTotalAddon,
+  setOnlineAddons,
+  deleteOnlineAddons,
 } = userSlice.actions;
 export default userSlice.reducer;

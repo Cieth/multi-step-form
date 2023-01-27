@@ -2,7 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import style from '../styles/components/Addons.module.css';
 import { RootState } from '../app/store';
-import { setAddon, setTotalAddon } from '../app/slices/userSlice';
+import {
+  deleteOnlineAddons,
+  setActiveAddons,
+  setAddon,
+  setOnlineAddons,
+  setTotalAddon,
+} from '../app/slices/userSlice';
 import { useDispatch } from 'react-redux';
 
 const Addons = () => {
@@ -39,12 +45,7 @@ const Addons = () => {
     },
   ];
   const dispatch = useDispatch();
-  let addon = useSelector((state: RootState) => state.user.addon);
-  let addonValues: Array<boolean> = Object.values(addon);
-  React.useEffect(() => {
-    addonValues = Object.values(addon);
-  }, [addon]);
-
+  let activeAddons = useSelector((state: RootState) => state.user.activeAddons);
   const totalAddon = useSelector((state: RootState) => state.user.totalAddon);
   const yearly = useSelector((state: RootState) => state.user.yearly);
   const getData = () => {
@@ -56,17 +57,20 @@ const Addons = () => {
     if (checked) {
       if (name.split(' ')[0] === 'Online') {
         dispatch(setAddon({ online: true }));
+        dispatch(setOnlineAddons('online'));
         !yearly
           ? dispatch(setTotalAddon(totalAddon + 1))
           : dispatch(setTotalAddon(totalAddon + 10));
       }
       if (name.split(' ')[0] === 'Larger') {
         dispatch(setAddon({ larger: true }));
+        dispatch(setOnlineAddons('larger'));
         !yearly
           ? dispatch(setTotalAddon(totalAddon + 2))
           : dispatch(setTotalAddon(totalAddon + 20));
       }
       if (name.split(' ')[0] === 'Customizable') {
+        dispatch(setOnlineAddons('customizable'));
         dispatch(setAddon({ customizable: true }));
         !yearly
           ? dispatch(setTotalAddon(totalAddon + 2))
@@ -75,25 +79,27 @@ const Addons = () => {
     } else {
       if (name.split(' ')[0] === 'Online') {
         dispatch(setAddon({ online: false }));
+        dispatch(deleteOnlineAddons('online'));
         !yearly
           ? dispatch(setTotalAddon(totalAddon - 1))
           : dispatch(setTotalAddon(totalAddon - 10));
       }
       if (name.split(' ')[0] === 'Larger') {
         dispatch(setAddon({ larger: false }));
+        dispatch(deleteOnlineAddons('larger'));
         !yearly
           ? dispatch(setTotalAddon(totalAddon - 2))
           : dispatch(setTotalAddon(totalAddon - 20));
       }
       if (name.split(' ')[0] === 'Customizable') {
         dispatch(setAddon({ customizable: false }));
+        dispatch(deleteOnlineAddons('customizable'));
         !yearly
           ? dispatch(setTotalAddon(totalAddon - 2))
           : dispatch(setTotalAddon(totalAddon - 20));
       }
     }
   };
-
 
   return (
     <form className={style.Plans__body}>
@@ -106,7 +112,7 @@ const Addons = () => {
                 type='checkbox'
                 className={style.double}
                 value={item.title}
-                checked={addonValues[i]}
+                checked={activeAddons[i]}
                 name={item.title}
                 id={i.toString()}
               />

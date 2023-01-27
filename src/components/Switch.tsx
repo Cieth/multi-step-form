@@ -6,6 +6,8 @@ import {
   setTotalAddon,
   setTotalPlan,
   setYearly,
+  setActiveAddons,
+  setAddon,
 } from '../app/slices/userSlice';
 import { RootState } from '../app/store';
 const Switch = () => {
@@ -19,11 +21,15 @@ const Switch = () => {
       dispatch(setActivePlan(4));
       dispatch(setTotalPlan(0));
       dispatch(setTotalAddon(0));
+      dispatch(setAddon({ online: false, larger: false, customizable: false }));
+      dispatch(setActiveAddons([false, false, false]));
     } else {
       dispatch(setYearly(false));
       dispatch(setActivePlan(4));
       dispatch(setTotalPlan(0));
       dispatch(setTotalAddon(0));
+      dispatch(setAddon({ online: false, larger: false, customizable: false }));
+      dispatch(setActiveAddons([false, false, false]));
     }
   };
   const active = {
