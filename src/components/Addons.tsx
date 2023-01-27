@@ -39,8 +39,12 @@ const Addons = () => {
     },
   ];
   const dispatch = useDispatch();
-  const addon = useSelector((state: RootState) => state.user.addon);
-  const addonValues: Array<boolean> = Object.values(addon);
+  let addon = useSelector((state: RootState) => state.user.addon);
+  let addonValues: Array<boolean> = Object.values(addon);
+  React.useEffect(() => {
+    addonValues = Object.values(addon);
+  }, [addon]);
+
   const totalAddon = useSelector((state: RootState) => state.user.totalAddon);
   const yearly = useSelector((state: RootState) => state.user.yearly);
   const getData = () => {
@@ -89,6 +93,8 @@ const Addons = () => {
       }
     }
   };
+
+
   return (
     <form className={style.Plans__body}>
       {getData().map((item, i) => {

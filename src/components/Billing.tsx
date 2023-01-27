@@ -1,14 +1,21 @@
 import React from 'react';
 import style from '../styles/components/Billing.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../app/store';
+import { setPage } from '../app/slices/userSlice';
 const Billing = () => {
+  const dispatch = useDispatch();
   const { plan, totalPlan, yearly, addon, totalAddon } = useSelector(
     (state: RootState) => state.user
   );
   const plans = ['Online service', 'Larger storage', 'Customizable profile'];
   const addonPrices = [1, 2, 2];
   const addonPricesA = [10, 20, 20];
+
+  const redirect = () => {
+    dispatch(setPage(2));
+  };
+
   return (
     <>
       <div className={style.Card__body}>
@@ -17,7 +24,9 @@ const Billing = () => {
             <span>
               {plan}({yearly ? 'Yearly' : 'Monthly'})
             </span>
-            <span>Change</span>
+            <span style={{ cursor: 'pointer' }} onClick={redirect}>
+              Change
+            </span>
           </div>
           <div className={style.Card__body_plan_content_price}>
             ${totalPlan}/mo
