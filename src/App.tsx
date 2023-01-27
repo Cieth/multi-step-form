@@ -41,6 +41,13 @@ function App() {
         description: 'Add-ons help enhance your gaming experience.',
       }));
     }
+    if (page === 4) {
+      setData((data) => ({
+        ...data,
+        title: 'Finishing up',
+        description: 'Double-check everything looks OK before confirming.',
+      }));
+    }
   };
   React.useEffect(() => {
     initialize();

@@ -1,0 +1,53 @@
+.Card__body{
+    display: flex;
+    flex-direction: column;
+    background-color:  hsl(231, 100%, 99%);
+    border-radius: 5px;
+    padding: 1rem;
+}
+.Card__body_plan {
+    display: flex;
+    padding: 0.2rem;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+.Card__body_plan_content {
+    display: flex;
+    flex-direction: column;
+    color: rgb(35, 57, 127);
+
+}
+.Card__body_plan_content span:last-child {
+    font-size: 14px;
+    text-decoration-line: underline;
+    color: grey;
+}
+.Card__body_plan_content_price{
+    display: flex;
+    margin: auto 0;
+    color: rgb(22, 45, 120);
+    justify-content: flex-end;
+}
+.card_body_addon{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0;
+    color: rgb(168, 168, 168);
+    font-family: "Ubuntu";
+    font-size: 14px;
+
+}
+.card_body_addon span:last-child{
+    color: rgb(38, 38, 119);
+}
+.total{
+    display: flex;
+    justify-content:space-between;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: rgb(155, 155, 155);
+}
+.total span:last-child{
+    font-weight: bold;
+   color: rgb(79, 79, 203);
+}

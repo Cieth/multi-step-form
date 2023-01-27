@@ -3,6 +3,7 @@ import style from '../styles/components/Switch.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setActivePlan,
+  setTotalAddon,
   setTotalPlan,
   setYearly,
 } from '../app/slices/userSlice';
@@ -17,10 +18,12 @@ const Switch = () => {
       dispatch(setYearly(true));
       dispatch(setActivePlan(4));
       dispatch(setTotalPlan(0));
+      dispatch(setTotalAddon(0));
     } else {
       dispatch(setYearly(false));
       dispatch(setActivePlan(4));
       dispatch(setTotalPlan(0));
+      dispatch(setTotalAddon(0));
     }
   };
   const active = {
@@ -31,7 +34,7 @@ const Switch = () => {
       <div className={style.Switch__body}>
         <span style={!yearly ? active : {}}>Monthly</span>
         <label className={style.switch}>
-          <input onChange={handleSwitch} type='checkbox' />
+          <input checked={yearly} onChange={handleSwitch} type='checkbox' />
           <span className={style.slider}></span>
         </label>
         <span style={yearly ? active : {}}>Yearly</span>

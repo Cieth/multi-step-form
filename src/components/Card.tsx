@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import styles from '../styles/components/Cards.module.css';
 import Addons from './Addons';
+import Billing from './Billing';
 import Fields from './Fields';
 import Plans from './Plans';
 interface cardProps {
@@ -21,6 +22,7 @@ export default function Cards({ title, description }: cardProps) {
         {page === 1 && <Fields />}
         {page === 2 && <Plans />}
         {page === 3 && <Addons />}
+        {page === 4 && <Billing />}
       </div>
     </div>
   );

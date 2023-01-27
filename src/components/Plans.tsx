@@ -73,7 +73,7 @@ const Plans = (): JSX.Element => {
     <div className={style.Plans__body}>
       {getData().map((item, i) => {
         return (
-          <button id={i.toString()} onClick={handleClick} name={item.title}>
+          <button key={i.toString()} onClick={handleClick} name={item.title}>
             <div
               className={
                 active === i ? style.Plans__card_active : style.Plans__card

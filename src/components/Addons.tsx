@@ -25,17 +25,17 @@ const Addons = () => {
     {
       title: 'Online service',
       description: 'Access to multiplayer games',
-      price: '$10/mo',
+      price: '$10/yr',
     },
     {
       title: 'Larger storage',
       description: 'Extra 1TB of cloud save',
-      price: '$20/mo',
+      price: '$20/yr',
     },
     {
       title: 'Customizable profile',
       description: 'Custom theme on your profile',
-      price: '$20/mo',
+      price: '$20/yr',
     },
   ];
   const dispatch = useDispatch();
@@ -93,7 +93,7 @@ const Addons = () => {
     <form className={style.Plans__body}>
       {getData().map((item, i) => {
         return (
-          <div className={style.Plans__card}>
+          <div key={i} className={style.Plans__card}>
             <div className={style.Plans__card_img}>
               <input
                 onChange={handleCheck}
