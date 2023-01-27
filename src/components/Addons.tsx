@@ -105,7 +105,12 @@ const Addons = () => {
     <form className={style.Plans__body}>
       {getData().map((item, i) => {
         return (
-          <div key={i} className={style.Plans__card}>
+          <div
+            key={i}
+            className={
+              !activeAddons[i] ? style.Plans__card : style.Plans__card_active
+            }
+          >
             <div className={style.Plans__card_img}>
               <input
                 onChange={handleCheck}
