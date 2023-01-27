@@ -8,6 +8,7 @@ import Plans from './Plans';
 import useWindowDimensions from '../util/useWindowDimension';
 import Nav from './Nav';
 import Navigation from './Navigation';
+import Finish from './Finish';
 interface cardProps {
   title: string;
   description: string;
@@ -21,16 +22,22 @@ export default function Cards({ title, description }: cardProps) {
       <div className={styles.Card__body_navigation}>
         {isMobile > 800 && <Navigation />}
       </div>
+
       <div className={styles.Card__body_content_main}>
-        <div className={styles.Card__content}>
-          <div className={styles.Card__title}>{title}</div>
-          <div className={styles.Card__description}>{description}</div>
-        </div>
+        {page !== 5 ? (
+          <div className={styles.Card__content}>
+            <div className={styles.Card__title}>{title}</div>
+            <div className={styles.Card__description}>{description}</div>
+          </div>
+        ) : (
+          <></>
+        )}
         <div className={styles.Card__content_2}>
           {page === 1 && <Fields />}
           {page === 2 && <Plans />}
           {page === 3 && <Addons />}
           {page === 4 && <Billing />}
+          {page === 5 && <Finish />}
         </div>
         <div>{isMobile > 800 ? <Nav /> : <></>}</div>
       </div>

@@ -18,21 +18,33 @@ export default function Nav(): JSX.Element {
       }
     }
   };
+  const finish = () => {
+    dispatch(setPage(5));
+  };
   const stylo = {
     justifyContent: 'spaceBetween',
   };
   return (
-    <div className={styles.footer}>
-      <div className={page <= 1 ? styles.inner : styles.inner2} style={stylo}>
-        {page > 1 && (
-          <button name='back' onClick={next}>
-            Go Back
-          </button>
-        )}
-        <button name='next' onClick={next}>
-          Next Step
-        </button>
-      </div>
-    </div>
+    <>
+      {page !== 5 ? (
+        <div className={styles.footer}>
+          <div
+            className={page <= 1 ? styles.inner : styles.inner2}
+            style={stylo}
+          >
+            {page > 1 && (
+              <button name='back' onClick={next}>
+                Go Back
+              </button>
+            )}
+            <button name='next' onClick={page !== 4 ? next : finish}>
+              Next Step
+            </button>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
