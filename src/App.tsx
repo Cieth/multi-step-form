@@ -60,7 +60,6 @@ function App() {
     <div className='App'>
       <div className='Header'>
         <div className='Buttons'>{isMobile < 800 ? <Navigation /> : <></>}</div>
-
         <Cards title={data.title} description={data.description} />
         {isMobile < 800 ? <Nav /> : <></>}
       </div>

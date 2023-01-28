@@ -53,7 +53,7 @@ const Navigation = () => {
                 name={item.number.toString()}
                 style={page === item.number ? styleActive() : {}}
               >
-                1
+                {item.number}
               </button>
             );
           })}
