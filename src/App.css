@@ -9,12 +9,11 @@
   font-weight: bold;
 }
 @font-face {
-  font-family: "Ubuntu Regular ";
+  font-family: "Ubuntu Regular";
   src: url("../assets/fonts/Ubuntu-Regular.ttf");
-  font-weight: 100;
 }
 *{
-  font-family: Ubuntu,sans-serif;
+  font-family: "Ubuntu" ,"sans-serif";
 }
 body{
   background-color: rgb(246, 251, 255);
