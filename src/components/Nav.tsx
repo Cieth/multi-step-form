@@ -38,7 +38,7 @@ export default function Nav(): JSX.Element {
               </button>
             )}
             <button name='next' onClick={page !== 4 ? next : finish}>
-              Next Step
+              {page === 4 ? 'Finish' : 'Next step'}
             </button>
           </div>
         </div>
